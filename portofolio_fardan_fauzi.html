@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Fardan Fauzi - Web Developer & UI/UX Designer</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: '#0B1120',
+                        darkCard: '#1E293B',
+                        primary: '#38BDF8', // Cyan
+                        secondary: '#818CF8', // Indigo
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles & Animations */
+        body {
+            background-color: #0B1120;
+            color: #F8FAFC;
+            overflow-x: hidden;
+        }
+        
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #38BDF8, #818CF8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Glow effect on hover */
+        .hover-glow:hover {
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary selection:text-dark">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#home" class="text-xl font-bold tracking-tighter text-white">
+                    Fardan<span class="text-primary">.</span>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-300 hover:text-primary transition-colors text-sm font-medium">Beranda</a>
+                    <a href="#skills" class="text-gray-300 hover:text-primary transition-colors text-sm font-medium">Keahlian</a>
+                    <a href="#experience" class="text-gray-300 hover:text-primary transition-colors text-sm font-medium">Rekam Jejak</a>
+                    <a href="#certifications" class="text-gray-300 hover:text-primary transition-colors text-sm font-medium">Sertifikasi</a>
+                    <a href="#contact" class="text-gray-300 hover:text-primary transition-colors text-sm font-medium">Kontak</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-darkCard border-b border-gray-800 absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#home" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-primary hover:bg-gray-800 rounded-md">Beranda</a>
+                <a href="#skills" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-primary hover:bg-gray-800 rounded-md">Keahlian</a>
+                <a href="#experience" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-primary hover:bg-gray-800 rounded-md">Rekam Jejak</a>
+                <a href="#certifications" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-primary hover:bg-gray-800 rounded-md">Sertifikasi</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-primary hover:bg-gray-800 rounded-md">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 relative">
+        <!-- Background decorative blur -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[120px] -z-10"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-[120px] -z-10"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+            <p class="text-primary font-medium tracking-wide uppercase text-sm mb-4">Portofolio Profesional</p>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
+                Muhammad <br class="md:hidden" />
+                <span class="gradient-text">Fardan Fauzi</span>
+            </h1>
+            <h2 class="text-2xl md:text-3xl font-medium text-gray-300 mb-6">
+                Web Developer & UI/UX Designer
+            </h2>
+            <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed mb-10">
+                Lulusan Informatika dengan pemahaman komprehensif. Siap memberi solusi teknis di lingkungan dinamis. Memadukan pengembangan web, desain antarmuka, dan fondasi infrastruktur TI yang solid.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="#contact" class="px-8 py-4 bg-primary text-dark font-semibold rounded-full hover:bg-white transition-all transform hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(56,189,248,0.4)]">
+                    Mari Berkolaborasi
+                </a>
+                <a href="#experience" class="px-8 py-4 bg-transparent border border-gray-600 text-white font-semibold rounded-full hover:border-gray-300 hover:bg-gray-800 transition-all">
+                    Lihat Rekam Jejak
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 bg-gray-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Keahlian Inti</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+                <p class="mt-4 text-gray-400">Kompetensi fungsional dan teknis yang saya kuasai.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Skill 1 -->
+                <div class="glass-card p-8 rounded-2xl hover-glow transition-all duration-300 transform hover:-translate-y-2 reveal" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary text-2xl mb-6">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Pemrograman Web</h3>
+                    <p class="text-gray-400 leading-relaxed text-sm">
+                        Pengembangan aplikasi web interaktif dengan fundamental kuat menggunakan <span class="text-gray-200">HTML, JavaScript, Node.js, dan PHP</span>.
+                    </p>
+                </div>
+
+                <!-- Skill 2 -->
+                <div class="glass-card p-8 rounded-2xl hover-glow transition-all duration-300 transform hover:-translate-y-2 reveal" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 bg-secondary/10 rounded-xl flex items-center justify-center text-secondary text-2xl mb-6">
+                        <i class="fas fa-pen-nib"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Desain UI/UX</h3>
+                    <p class="text-gray-400 leading-relaxed text-sm">
+                        Perancangan antarmuka estetik yang memprioritaskan aksesibilitas dan <span class="text-gray-200">pengalaman pengguna (UX) yang optimal</span>.
+                    </p>
+                </div>
+
+                <!-- Skill 3 -->
+                <div class="glass-card p-8 rounded-2xl hover-glow transition-all duration-300 transform hover:-translate-y-2 reveal" style="transition-delay: 300ms;">
+                    <div class="w-14 h-14 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-400 text-2xl mb-6">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Infrastruktur TI</h3>
+                    <p class="text-gray-400 leading-relaxed text-sm">
+                        Pemahaman mendalam mengenai <span class="text-gray-200">jaringan komputer, administrasi sistem operasional, dan keamanan digital dasar</span>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Education Section -->
+    <section id="experience" class="py-24 relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Rekam Jejak</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+                <p class="mt-4 text-gray-400">Perjalanan akademis dan profesional.</p>
+            </div>
+
+            <div class="relative wrap overflow-hidden p-10 h-full">
+                <!-- Vertical Line -->
+                <div class="border-2-2 absolute border-opacity-20 border-gray-400 h-full border" style="left: 50%; transform: translateX(-50%);"></div>
+                
+                <!-- Item 1: S1 -->
+                <div class="mb-12 flex justify-between items-center w-full right-timeline reveal">
+                    <div class="order-1 w-5/12 hidden md:block"></div>
+                    <div class="z-20 flex items-center order-1 bg-darkCard shadow-xl w-10 h-10 rounded-full border-4 border-primary">
+                        <i class="fas fa-graduation-cap text-primary mx-auto text-sm"></i>
+                    </div>
+                    <div class="order-1 glass-card rounded-2xl w-full md:w-5/12 px-6 py-6 hover-glow transition-all">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-bold text-white text-lg">Univ. Singaperbangsa Karawang</h3>
+                            <span class="text-primary text-sm font-semibold bg-primary/10 px-3 py-1 rounded-full">2019 - 2026</span>
+                        </div>
+                        <p class="text-gray-300 font-medium mb-1">S1 Informatika</p>
+                        <p class="text-sm leading-snug tracking-wide text-gray-400 text-opacity-100">Lulus dengan IPK: 3.00.</p>
+                    </div>
+                </div>
+
+                <!-- Item 2: Magang -->
+                <div class="mb-12 flex justify-between flex-row-reverse items-center w-full left-timeline reveal">
+                    <div class="order-1 w-5/12 hidden md:block"></div>
+                    <div class="z-20 flex items-center order-1 bg-darkCard shadow-xl w-10 h-10 rounded-full border-4 border-secondary">
+                        <i class="fas fa-briefcase text-secondary mx-auto text-sm"></i>
+                    </div>
+                    <div class="order-1 glass-card rounded-2xl w-full md:w-5/12 px-6 py-6 hover-glow transition-all">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-bold text-white text-lg">PT Multistrada Arah Sarana Tbk</h3>
+                            <span class="text-secondary text-sm font-semibold bg-secondary/10 px-3 py-1 rounded-full text-right">Jan - Mar 2018</span>
+                        </div>
+                        <p class="text-gray-300 font-medium mb-1">Magang Departemen Pengadaan</p>
+                        <p class="text-sm leading-snug tracking-wide text-gray-400 text-opacity-100">Mendapatkan pengalaman praktis di dunia industri dan sistem pengadaan.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3: SMK -->
+                <div class="mb-12 flex justify-between items-center w-full right-timeline reveal">
+                    <div class="order-1 w-5/12 hidden md:block"></div>
+                    <div class="z-20 flex items-center order-1 bg-darkCard shadow-xl w-10 h-10 rounded-full border-4 border-emerald-500">
+                        <i class="fas fa-school text-emerald-500 mx-auto text-sm"></i>
+                    </div>
+                    <div class="order-1 glass-card rounded-2xl w-full md:w-5/12 px-6 py-6 hover-glow transition-all">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-bold text-white text-lg">SMK Negeri 1 Karawang</h3>
+                            <span class="text-emerald-400 text-sm font-semibold bg-emerald-500/10 px-3 py-1 rounded-full">2016 - 2019</span>
+                        </div>
+                        <p class="text-gray-300 font-medium mb-1">Teknik Komputer dan Jaringan</p>
+                        <p class="text-sm leading-snug tracking-wide text-gray-400 text-opacity-100">Fondasi awal dalam memahami infrastruktur TI dan jaringan komputer.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-24 bg-gray-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Pengembangan Berkelanjutan</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+                <p class="mt-4 text-gray-400">Lisensi & Sertifikasi Teknis</p>
+            </div>
+
+            <!-- Highlighted Certification -->
+            <div class="glass-card rounded-3xl p-8 mb-12 reveal border-t-4 border-t-primary">
+                <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+                    <div class="flex-shrink-0 text-center md:text-left">
+                        <div class="text-6xl font-extrabold text-white mb-1">152</div>
+                        <div class="text-primary font-semibold tracking-wide uppercase text-sm">Jam Pelatihan Intensif</div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-white mb-2">Google IT Support Professional & FGA Digital Talent Scholarship 2024</h3>
+                        <p class="text-gray-400 mb-6">Modul utama yang dikuasai meliputi serangkaian kompetensi IT fundamental dan advance.</p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-check-circle text-primary"></i>
+                                <span class="text-gray-300 text-sm">Dasar Dukungan Teknis</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-check-circle text-primary"></i>
+                                <span class="text-gray-300 text-sm">Seluk Beluk Jaringan Komputer</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-check-circle text-primary"></i>
+                                <span class="text-gray-300 text-sm">Administrasi Sistem Operasi</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-check-circle text-primary"></i>
+                                <span class="text-gray-300 text-sm">Keamanan & Pertahanan Digital</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden md:flex flex-shrink-0 items-center justify-center w-24 h-24 bg-white rounded-full p-4">
+                        <!-- Google Logo Mock (SVG) -->
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Certifications Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal">
+                
+                <!-- Cert 1 -->
+                <div class="glass-card p-6 rounded-2xl hover-glow transition-all flex flex-col h-full">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center text-white text-xl">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white">Dicoding Indonesia</h4>
+                            <p class="text-primary text-sm font-medium">DevOps & Python Basics</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mt-auto">Implementasi pipeline dan pemrograman dasar Python.</p>
+                </div>
+
+                <!-- Cert 2 -->
+                <div class="glass-card p-6 rounded-2xl hover-glow transition-all flex flex-col h-full">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center text-blue-500 text-xl">
+                            <i class="fab fa-microsoft"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white">Microsoft</h4>
+                            <p class="text-secondary text-sm font-medium">Data Science & AI Models</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mt-auto">Eksplorasi dan pemrosesan data menggunakan Microsoft Fabric.</p>
+                </div>
+
+                <!-- Cert 3 -->
+                <div class="glass-card p-6 rounded-2xl hover-glow transition-all flex flex-col h-full">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center text-blue-300 text-xl">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white">IBM SkillsBuild</h4>
+                            <p class="text-primary text-sm font-medium">Klasifikasi Data dengan AI</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mt-auto">Peringkasan dan pengolahan data menggunakan IBM Granite.</p>
+                </div>
+
+                <!-- Cert 4 -->
+                <div class="glass-card p-6 rounded-2xl hover-glow transition-all flex flex-col h-full">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center text-emerald-400 text-xl">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white">Microsoft AI Skills</h4>
+                            <p class="text-emerald-400 text-sm font-medium">Generative AI di Azure</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mt-auto">Pengembangan aplikasi berbasis kecerdasan buatan generatif.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative overflow-hidden">
+        <!-- Decoration -->
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5 -z-10"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+            <h2 class="text-5xl md:text-6xl font-extrabold text-white mb-6">Mari <span class="gradient-text">Berkolaborasi.</span></h2>
+            <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
+                Tertarik untuk bekerja sama, memiliki proyek, atau sekadar ingin berdiskusi? Jangan ragu untuk menghubungi saya melalui platform di bawah ini.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
+                <!-- Email -->
+                <a href="mailto:mfardanfzi@gmail.com" class="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 glass-card rounded-full hover:bg-white hover:text-dark transition-all duration-300 group">
+                    <i class="fas fa-envelope text-primary group-hover:text-dark text-xl transition-colors"></i>
+                    <span class="font-semibold">Email</span>
+                </a>
+                
+                <!-- WhatsApp -->
+                <a href="https://wa.me/6283862505495" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 glass-card rounded-full hover:bg-[#25D366] hover:text-white transition-all duration-300 group hover:border-[#25D366]">
+                    <i class="fab fa-whatsapp text-[#25D366] group-hover:text-white text-xl transition-colors"></i>
+                    <span class="font-semibold">WhatsApp</span>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://linkedin.com/in/muhammad-fardan-fauzi" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 glass-card rounded-full hover:bg-[#0A66C2] hover:text-white transition-all duration-300 group hover:border-[#0A66C2]">
+                    <i class="fab fa-linkedin-in text-[#0A66C2] group-hover:text-white text-xl transition-colors"></i>
+                    <span class="font-semibold">LinkedIn</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 bg-dark py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-500 text-sm">
+                &copy; <script>document.write(new Date().getFullYear())</script> Muhammad Fardan Fauzi. Didesain dengan <i class="fas fa-heart text-red-500 mx-1"></i> untuk Portofolio Profesional.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Scroll Reveal Animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Trigger on load
+
+        // Navbar blur effect on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+                navbar.style.background = 'rgba(15, 23, 42, 0.85)';
+            } else {
+                navbar.classList.remove('shadow-lg');
+                navbar.style.background = 'rgba(15, 23, 42, 0.7)';
+            }
+        });
+    </script>
+</body>
+</html>
